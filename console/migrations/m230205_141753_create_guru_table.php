@@ -14,6 +14,10 @@ class m230205_141753_create_guru_table extends Migration
     {
         $this->createTable('{{%guru}}', [
             'id' => $this->primaryKey(),
+            'nama' => $this->string(30)->notNull(),
+            'alamat' => $this->string(100),
+            'id_jenis_kelamin' => $this->tinyInteger(),
+            'id_kelas' => $this->integer()
         ]);
     }
 

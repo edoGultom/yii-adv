@@ -14,7 +14,20 @@ class m230205_141849_create_ref_kelas_table extends Migration
     {
         $this->createTable('{{%ref_kelas}}', [
             'id' => $this->primaryKey(),
+            'keterangan' => $this->string(50)->notNull()
         ]);
+
+        $this->batchInsert(
+            'ref_kelas',
+            [
+                'keterangan'
+            ],
+            [
+                ['TI-P2101'],
+                ['TI-P2102'],
+                ['TI-P2103']
+            ]
+        );
     }
 
     /**
