@@ -4,12 +4,12 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Siswa;
+use common\models\Guru;
 
 /**
- * DataSiswaSearch represents the model behind the search form of `common\models\Siswa`.
+ * DataGuruSearch represents the model behind the search form of `common\models\Guru`.
  */
-class DataSiswaSearch extends Siswa
+class DataGuruSearch extends Guru
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,8 @@ class DataSiswaSearch extends Siswa
     public function rules()
     {
         return [
-            [['id', 'id_jenis_kelamin'], 'integer'],
-            [['nim', 'nama', 'tgl_lahir', 'alamat', 'no_hp'], 'safe'],
+            [['id', 'id_jenis_kelamin', 'id_kelas'], 'integer'],
+            [['nama', 'alamat'], 'safe'],
         ];
     }
 
@@ -40,7 +40,7 @@ class DataSiswaSearch extends Siswa
      */
     public function search($params)
     {
-        $query = Siswa::find();
+        $query = Guru::find();
 
         // add conditions that should always apply here
 
@@ -60,13 +60,11 @@ class DataSiswaSearch extends Siswa
         $query->andFilterWhere([
             'id' => $this->id,
             'id_jenis_kelamin' => $this->id_jenis_kelamin,
-            'tgl_lahir' => $this->tgl_lahir,
+            'id_kelas' => $this->id_kelas,
         ]);
 
-        $query->andFilterWhere(['ilike', 'nim', $this->nim])
-            ->andFilterWhere(['ilike', 'nama', $this->nama])
-            ->andFilterWhere(['ilike', 'alamat', $this->alamat])
-            ->andFilterWhere(['ilike', 'no_hp', $this->no_hp]);
+        $query->andFilterWhere(['ilike', 'nama', $this->nama])
+            ->andFilterWhere(['ilike', 'alamat', $this->alamat]);
 
         return $dataProvider;
     }
