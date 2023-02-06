@@ -32,8 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'nama',
             'alamat',
-            'id_jenis_kelamin',
-            'id_kelas',
+            [
+                'class' => 'yii\grid\DataColumn',
+                'header' =>  'Jenis Kelamin',
+                'attribute' =>  'refJenisKelamin.keterangan',
+            ],
+            [
+                'class' => 'yii\grid\DataColumn',
+                'header' =>  'Kelas',
+                'attribute' =>  'refKelas.keterangan',
+            ],
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Guru $model, $key, $index, $column) {
