@@ -29,6 +29,9 @@ class m230204_080122_role_data_siswa extends Migration
                     '/data-siswa/*', 2, NULL, NULL, NULL, time(), time()
                 ],
                 [
+                    '/data-guru/*', 2, NULL, NULL, NULL, time(), time()
+                ],
+                [
                     'Admin', 1, NULL, NULL, NULL, time(), time()
                 ],
                 [
@@ -46,6 +49,9 @@ class m230204_080122_role_data_siswa extends Migration
             [
                 [
                     'Admin', '/data-siswa/*'
+                ],
+                [
+                    'Admin', '/data-guru/*'
                 ],
             ]
         );
