@@ -4,9 +4,12 @@ namespace backend\controllers;
 
 use common\models\Guru;
 use backend\models\DataGuruSearch;
+use common\models\RefJensiKelamin;
+use common\models\RefKelas;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * DataGuruController implements the CRUD actions for Guru model.
@@ -68,6 +71,8 @@ class DataGuruController extends Controller
     public function actionCreate()
     {
         $model = new Guru();
+        $data = ArrayHelper::map(RefJensiKelamin::find()->all(), 'id', 'keterangan');
+        $data = ArrayHelper::map(RefKelas::find()->all(), 'id', 'keterangan');
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
@@ -79,6 +84,8 @@ class DataGuruController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'data' => $data,
+
         ]);
     }
 
