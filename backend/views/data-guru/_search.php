@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
-/** @var backend\models\GuruSearch $model */
+/** @var backend\models\DataGuruSearch $model */
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
@@ -16,6 +16,16 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?= $form->field($model, 'id') ?>
+
+    <?= $form->field($model, 'nama') ?>
+
+    <?= $form->field($model, 'alamat') ?>
+
+    <?= $form->field($model, 'id_jenis_kelamin') ?>
+
+    <?= $form->field($model, 'id_kelas') ?>
+
+    <?php // echo $form->field($model, 'no_hp') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

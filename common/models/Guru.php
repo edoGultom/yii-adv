@@ -8,6 +8,11 @@ use Yii;
  * This is the model class for table "guru".
  *
  * @property int $id
+ * @property string|null $nama
+ * @property string|null $alamat
+ * @property int|null $id_jenis_kelamin
+ * @property int|null $id_kelas
+ * @property string|null $no_hp
  */
 class Guru extends \yii\db\ActiveRecord
 {
@@ -24,7 +29,12 @@ class Guru extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [];
+        return [
+            [['nama', 'alamat'], 'string'],
+            [['id_jenis_kelamin', 'id_kelas'], 'default', 'value' => null],
+            [['id_jenis_kelamin', 'id_kelas'], 'integer'],
+            [['no_hp'], 'string', 'max' => 15],
+        ];
     }
 
     /**
@@ -34,6 +44,11 @@ class Guru extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'nama' => 'Nama',
+            'alamat' => 'Alamat',
+            'id_jenis_kelamin' => 'Id Jenis Kelamin',
+            'id_kelas' => 'Id Kelas',
+            'no_hp' => 'No Hp',
         ];
     }
 }

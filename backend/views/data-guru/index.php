@@ -7,7 +7,7 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var backend\models\GuruSearch $searchModel */
+/** @var backend\models\DataGuruSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Gurus';
@@ -30,6 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
+            'nama:ntext',
+            'alamat:ntext',
+            'id_jenis_kelamin',
+            'id_kelas',
+            //'no_hp',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, Guru $model, $key, $index, $column) {

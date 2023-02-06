@@ -3,15 +3,15 @@
 namespace backend\controllers;
 
 use common\models\Guru;
-use backend\models\GuruSearch;
+use backend\models\DataGuruSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * GuruController implements the CRUD actions for Guru model.
+ * DataGuruController implements the CRUD actions for Guru model.
  */
-class GuruController extends Controller
+class DataGuruController extends Controller
 {
     /**
      * @inheritDoc
@@ -38,7 +38,7 @@ class GuruController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new GuruSearch();
+        $searchModel = new DataGuruSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
         return $this->render('index', [
