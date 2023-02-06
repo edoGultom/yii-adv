@@ -3,16 +3,15 @@
 use yii\db\Migration;
 
 /**
- * Class m230204_080122_role_data_siswa
+ * Class m230206_032712_role_data_guru
  */
-class m230204_080122_role_data_siswa extends Migration
+class m230206_032712_role_data_guru extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-
         $this->batchInsert(
             'auth_item',
             [
@@ -25,14 +24,9 @@ class m230204_080122_role_data_siswa extends Migration
                 'updated_at'
             ],
             [
+
                 [
-                    '/data-siswa/*', 2, NULL, NULL, NULL, time(), time()
-                ],
-                [
-                    'Admin', 1, NULL, NULL, NULL, time(), time()
-                ],
-                [
-                    'Master', 1, NULL, NULL, NULL, time(), time()
+                    '/data-guru/*', 2, NULL, NULL, NULL, time(), time()
                 ],
             ]
         );
@@ -45,24 +39,9 @@ class m230204_080122_role_data_siswa extends Migration
             ],
             [
                 [
-                    'Admin', '/data-siswa/*'
+                    'Admin', '/data-guru/*'
                 ],
-            ]
-        );
 
-        $this->batchInsert(
-            'auth_assignment',
-            [
-                'item_name',
-                'user_id',
-                'created_at',
-            ],
-            [
-                [
-                    'Admin',
-                    '1',
-                    NULL
-                ],
             ]
         );
     }
@@ -72,7 +51,7 @@ class m230204_080122_role_data_siswa extends Migration
      */
     public function safeDown()
     {
-        echo "m230204_080122_role_data_siswa cannot be reverted.\n";
+        echo "m230206_032712_role_data_guru cannot be reverted.\n";
 
         return false;
     }
@@ -86,7 +65,7 @@ class m230204_080122_role_data_siswa extends Migration
 
     public function down()
     {
-        echo "m230204_080122_role_data_siswa cannot be reverted.\n";
+        echo "m230206_032712_role_data_guru cannot be reverted.\n";
 
         return false;
     }

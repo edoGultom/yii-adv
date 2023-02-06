@@ -12,6 +12,7 @@ use Yii;
  * @property string|null $alamat
  * @property int|null $id_jenis_kelamin
  * @property int|null $id_kelas
+ * @property string|null $no_hp
  */
 class Guru extends \yii\db\ActiveRecord
 {
@@ -32,6 +33,7 @@ class Guru extends \yii\db\ActiveRecord
             [['nama', 'alamat'], 'string'],
             [['id_jenis_kelamin', 'id_kelas'], 'default', 'value' => null],
             [['id_jenis_kelamin', 'id_kelas'], 'integer'],
+            [['no_hp'], 'string', 'max' => 15],
         ];
     }
 
@@ -46,14 +48,15 @@ class Guru extends \yii\db\ActiveRecord
             'alamat' => 'Alamat',
             'id_jenis_kelamin' => 'Id Jenis Kelamin',
             'id_kelas' => 'Id Kelas',
+            'no_hp' => 'No Hp',
         ];
     }
     public function getRefJenisKelamin()
     {
-    return $this->hasOne(RefJensiKelamin::className(), ['id' => 'id_jenis_kelamin']);
+        return $this->hasOne(RefJensiKelamin::className(), ['id' => 'id_jenis_kelamin']);
     }
     public function getRefKelas()
     {
-    return $this->hasOne(RefKelas::className(), ['id' => 'id_kelas']);
+        return $this->hasOne(RefKelas::className(), ['id' => 'id_kelas']);
     }
 }
