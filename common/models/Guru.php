@@ -48,4 +48,12 @@ class Guru extends \yii\db\ActiveRecord
             'id_kelas' => 'Id Kelas',
         ];
     }
+    public function getRefJenisKelamin()
+    {
+    return $this->hasOne(RefJensiKelamin::className(), ['id' => 'id_jenis_kelamin']);
+    }
+    public function getRefKelas()
+    {
+    return $this->hasOne(RefKelas::className(), ['id' => 'id_kelas']);
+    }
 }
